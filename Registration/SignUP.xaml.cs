@@ -29,19 +29,6 @@ namespace OrderFurniture.Registration
         {
             InitializeComponent();
         }
-        public static bool ValidatePassword(string password)
-        {
-            if (password.Length < 6 || password.Length > 20)
-                return false;
-            if (!password.Any(char.IsUpper))
-                return false;
-            if (!password.Any(char.IsDigit))
-                return false;
-            if (password.Intersect("!@#$%^").Count() == 0)
-                return false;
-
-            return true;
-        }
 
 
         private void Signup(object sender, RoutedEventArgs e)
@@ -70,7 +57,7 @@ namespace OrderFurniture.Registration
                     errors.AppendLine("Логин не введен, повторите попытку");
                 if (String.IsNullOrEmpty(pw))
                     errors.AppendLine("Пароль не введен, повторите попытку");
-                if (Password.Password == RepeatPassword.Password)
+                if (Password.Password != RepeatPassword.Password)
                     errors.AppendLine("Пароли не совпадают, повторите попытку!");
                 if (p == true)
                     errors.AppendLine("Пользователь с таким логином уже существует, придумайте другой.");

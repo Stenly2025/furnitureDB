@@ -17,7 +17,6 @@
         <!--<DatePicker Background="Transparent" BorderBrush="Black" SelectedDate="{Binding DateOfPurchase}"  HorizontalAlignment="Left" Margin="156,171,0,0" VerticalAlignment="Top" Width="225" Height="23"/>-->
         <Label x:Name="ArticleLabel" Content="Артикул" HorizontalAlignment="Left" Margin="96,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.456,0.131"/>
         <Label Content="Наименование" HorizontalAlignment="Left" Margin="58,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.456,0.131"/>
-        <Label Content="Дата покупки" HorizontalAlignment="Left" Margin="66,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.456,0.131"/>
         <TextBox Background="Transparent" BorderBrush="Black" x:Name="ChekMark_Copy" HorizontalAlignment="Left" Height="20" Margin="156,70,0,0" TextWrapping="Wrap" Text="{Binding Count}" VerticalAlignment="Top" Width="224"/>
         <TextBox Background="Transparent" BorderBrush="Black"  HorizontalAlignment="Left" Height="20" Margin="156,94,0,0" TextWrapping="Wrap" Text="{Binding Unit}" VerticalAlignment="Top" Width="224"/>
         <Label Content="Количество" HorizontalAlignment="Left" Margin="77,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.456,0.131"/>
@@ -25,7 +24,6 @@
         <TextBox Background="Transparent" BorderBrush="Black" x:Name="ChekMark_Copy1" HorizontalAlignment="Left" Height="20" Margin="156,121,0,0" TextWrapping="Wrap" Text="{Binding Price}" VerticalAlignment="Top" Width="224"/>
         <Label Content="Закупочная цена" HorizontalAlignment="Left" Margin="47,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.456,0.131"/>
         <Label Content="Основной поставщик" HorizontalAlignment="Left" Margin="22,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.456,0.131"/>
-        <ComboBox Background="Transparent" BorderBrush="Black" SelectedValue="{Binding Supplier, Mode=TwoWay}" SelectedValuePath="Name" DisplayMemberPath="Name" x:Name="CBoxTypeNameSupplier" HorizontalAlignment="Left" Margin="157,147,0,0" VerticalAlignment="Top" Width="225" Height="23" />
-
+        <ComboBox Background="Transparent" BorderBrush="Black" SelectedValue="{Binding Supplier, Mode=TwoWay}" SelectedValuePath="Name" DisplayMemberPath="Name" x:Name="CBoxTypeNameSupplier" HorizontalAlignment="Left" Margin="157,147,0,0" VerticalAlignment="Top" Width="225" Height="23" SelectionChanged="CBoxTypeNameSupplier_SelectionChanged" />
     </Grid>
 </Window>

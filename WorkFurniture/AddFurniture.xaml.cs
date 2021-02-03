@@ -21,6 +21,7 @@ namespace OrderFurniture.WorkFurniture
     public partial class AddFurniture : Window
     {
         private Furniture _currentFurniture = new Furniture();
+        List<Supplier> suppliers = new List<Supplier>();
         public AddFurniture(Furniture selectedFurniture)
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace OrderFurniture.WorkFurniture
                 _currentFurniture = selectedFurniture;
             DataContext = _currentFurniture;
             CBoxTypeNameSupplier.ItemsSource = OrderfurnituredbEntities.GetContext().Supplier.ToList();
+            suppliers = OrderfurnituredbEntities.GetContext().Supplier.ToList();
 
         }
 
@@ -54,7 +56,7 @@ namespace OrderFurniture.WorkFurniture
                 errors.AppendLine("Укажите наименование фурнитуры");
        
 
-
+            
 
             if (errors.Length > 0)
             {
@@ -75,5 +77,10 @@ namespace OrderFurniture.WorkFurniture
 
         }
 
+        private void CBoxTypeNameSupplier_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var id = CBoxTypeNameSupplier.SelectedIndex;
+            _currentFurniture.OwnSupplier = suppliers[id].Name;
+        }
     }
 }

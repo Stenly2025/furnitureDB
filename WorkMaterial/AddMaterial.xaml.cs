@@ -21,6 +21,7 @@ namespace OrderFurniture.WorkMaterial
     public partial class AddMaterial : Window
     {
         private Material _currentMaterial = new Material();
+        List<Supplier> suppliers = new List<Supplier>();
         public AddMaterial(Material selectedMaterial)
         {
             InitializeComponent();
@@ -28,6 +29,8 @@ namespace OrderFurniture.WorkMaterial
                 _currentMaterial = selectedMaterial;
             DataContext = _currentMaterial;
             CBoxTypeNameSupplier.ItemsSource = OrderfurnituredbEntities.GetContext().Supplier.ToList();
+            suppliers = OrderfurnituredbEntities.GetContext().Supplier.ToList();
+
         }
 
         private void BtnSave(object sender, RoutedEventArgs e)
@@ -72,6 +75,12 @@ namespace OrderFurniture.WorkMaterial
             mat.Visibility = Visibility.Visible;
             this.Close();
 
+        }
+
+        private void CBoxTypeNameSupplier_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var id = CBoxTypeNameSupplier.SelectedIndex;
+            _currentMaterial.OwnSupplier = suppliers[id].Name;
         }
     }
 }

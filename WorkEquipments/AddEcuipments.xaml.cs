@@ -28,6 +28,7 @@ namespace OrderFurniture.WorkEquipments
                 _currentEquipment = selectedEquipment;
             DataContext = _currentEquipment;
             CBoxTypeEquipment.ItemsSource = OrderfurnituredbEntities.GetContext().TypeEquipment.ToList();
+
         }
 
         private void BtnBack(object sender, RoutedEventArgs e)
